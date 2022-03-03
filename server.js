@@ -4,6 +4,7 @@
 // https://www.npmjs.com/package/express
 const express = require('express');
 //added comment to test branching
+//added conflict comment
 // converts content in the request into parameter req.body
 // https://www.npmjs.com/package/body-parser
 const bodyParser = require('body-parser');
