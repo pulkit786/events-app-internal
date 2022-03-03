@@ -7,6 +7,7 @@ const express = require('express');
 
 
 //adding conflicting comment code
+//added conflict comment
 // converts content in the request into parameter req.body
 // https://www.npmjs.com/package/body-parser
 const bodyParser = require('body-parser');
