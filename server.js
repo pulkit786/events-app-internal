@@ -3,6 +3,7 @@
 // https://www.npmjs.com/package/express
 const express = require('express');
 
+const {v4: uuidv4 } = require('uuid');
 // bring in firestore DB
 const Firestore = require("@google-cloud/firestore");
 
@@ -34,8 +35,8 @@ app.use(function (req, res, next) {
 // from a cloud data store
 const mockEvents = {
     events: [
-        { title: 'an event', id: 1, description: 'something really cool' },
-        { title: 'another event', id: 2, description: 'something even cooler' }
+        { title: 'an event', id: uuidv4(), description: 'something really cool' },
+        { title: 'another event', id: uuidv4(), description: 'something even cooler' }
     ]
 };
 
@@ -62,7 +63,7 @@ app.post('/event', (req, res) => {
     const ev = { 
         title: req.body.title, 
         description: req.body.description,
-        id : mockEvents.events.length + 1
+        id : uuidv4()
      }
 // this will create the Events collection if it does not exist
     firestore.collection("Events").add(ev).then(ret => {
